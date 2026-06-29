@@ -127,3 +127,11 @@ The project focuses on building a production-quality full-stack application with
 * Payment gateway integration
 * Multi-language support
 * Mobile applications
+
+## auth screen
+![Authentication Screen](auth_screen.png)
+## student dashboard
+![Main Dashboard](student.png)
+
+## course 
+!(course.png)
