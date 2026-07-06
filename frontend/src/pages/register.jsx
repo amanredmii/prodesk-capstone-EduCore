@@ -29,7 +29,7 @@ function Register() {
                     </h1>
 
                     <p className="text-slate-500 mt-2">
-                        Join EduWeb and start your journey
+                        Join Educore and start your journey
                     </p>
                 </div>
 
