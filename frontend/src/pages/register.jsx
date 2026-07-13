@@ -20,9 +20,7 @@ function Register() {
         <div className="min-h-screen bg-slate-100 flex items-center justify-center px-4">
             <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl">
                 <div className="text-center mb-8">
-                    <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-4xl">👤</span>
-                    </div>
+
 
                     <h1 className="text-3xl font-bold text-slate-800">
                         Create Account

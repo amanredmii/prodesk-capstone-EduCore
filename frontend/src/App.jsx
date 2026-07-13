@@ -1,11 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Login from "./pages/login";
 import Register from "./pages/register";
+import Dashboard from "./pages/dashboard";
+import CreateCourse from "./pages/create_course";
+import EditCourse from "./pages/edit_course";
+import ProtectedRoute from "./components/Protectedroutes";
 
 function App() {
 
   return (
     <BrowserRouter>
+
       <Routes>
 
         <Route
@@ -18,7 +24,35 @@ function App() {
           element={<Register />}
         />
 
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/create-course"
+          element={
+            <ProtectedRoute>
+              <CreateCourse />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/edit-course/:id"
+          element={
+            <ProtectedRoute>
+              <EditCourse />
+            </ProtectedRoute>
+          }
+        />
+
       </Routes>
+
     </BrowserRouter>
   );
 }

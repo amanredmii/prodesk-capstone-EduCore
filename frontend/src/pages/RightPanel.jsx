@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     FaEnvelope,
     FaLock,
@@ -7,6 +8,9 @@ import {
 import { login } from "../services/auth_service";
 
 function RightPanel() {
+
+    const navigate = useNavigate();
+
     const [form, setForm] = useState({
         email: "",
         password: "",
@@ -16,10 +20,18 @@ function RightPanel() {
         e.preventDefault();
 
         try {
+
             await login(form);
-            alert("Login Successful!");
+
+            navigate("/dashboard");
+
         } catch (error) {
-            alert(error.response?.data?.message || "Login Failed");
+
+            alert(
+                error.response?.data?.message ||
+                "Login Failed"
+            );
+
         }
     };
 
@@ -48,12 +60,10 @@ function RightPanel() {
                     Sign in to continue learning.
                 </p>
 
-
                 <form
                     onSubmit={handleSubmit}
                     className="space-y-5"
                 >
-
 
                     <div>
                         <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -62,9 +72,7 @@ function RightPanel() {
 
                         <div className="relative">
 
-                            <FaEnvelope
-                                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"
-                            />
+                            <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
 
                             <input
                                 type="email"
@@ -81,7 +89,6 @@ function RightPanel() {
                         </div>
                     </div>
 
-
                     <div>
 
                         <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -90,9 +97,7 @@ function RightPanel() {
 
                         <div className="relative">
 
-                            <FaLock
-                                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"
-                            />
+                            <FaLock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
 
                             <input
                                 type="password"
@@ -106,13 +111,11 @@ function RightPanel() {
                                 }
                             />
 
-                            <FaEye
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm cursor-pointer"
-                            />
+                            <FaEye className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm cursor-pointer" />
 
                         </div>
-                    </div>
 
+                    </div>
 
                     <div className="flex justify-between items-center text-sm">
 
@@ -136,7 +139,6 @@ function RightPanel() {
 
                     </div>
 
-
                     <button
                         type="submit"
                         className="w-full h-11 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition"
@@ -146,33 +148,19 @@ function RightPanel() {
 
                 </form>
 
-
                 <div className="flex items-center my-6">
-
                     <div className="flex-1 border-t"></div>
-
-                    <span className="mx-4 text-xs text-gray-400">
-                        OR
-                    </span>
-
+                    <span className="mx-4 text-xs text-gray-400">OR</span>
                     <div className="flex-1 border-t"></div>
-
                 </div>
-
 
                 <p className="text-center text-xs text-gray-500 leading-5">
                     By signing in, you agree to our{" "}
-                    <a
-                        href="#"
-                        className="text-blue-600 hover:underline"
-                    >
+                    <a href="#" className="text-blue-600 hover:underline">
                         Terms of Use
                     </a>{" "}
                     and{" "}
-                    <a
-                        href="#"
-                        className="text-blue-600 hover:underline"
-                    >
+                    <a href="#" className="text-blue-600 hover:underline">
                         Privacy Policy
                     </a>.
                 </p>
