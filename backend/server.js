@@ -17,6 +17,14 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
+app.use("/api/ai", require("./routes/aiRoutes"));
+
+const { notFound, errorHandler } =
+    require("./middleware/errorMiddleware");
+
+app.use(notFound);
+
+app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
     console.log(`🚀 Server running on port ${process.env.PORT}`);

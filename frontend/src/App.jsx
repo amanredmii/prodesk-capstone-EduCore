@@ -6,6 +6,7 @@ import Dashboard from "./pages/dashboard";
 import CreateCourse from "./pages/create_course";
 import EditCourse from "./pages/edit_course";
 import ProtectedRoute from "./components/Protectedroutes";
+import AIChat from "./pages/aichat";
 
 function App() {
 
@@ -50,8 +51,16 @@ function App() {
             </ProtectedRoute>
           }
         />
-
+        <Route
+          path="/ai"
+          element={
+            <ProtectedRoute>
+              <AIChat />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
+
 
     </BrowserRouter>
   );
