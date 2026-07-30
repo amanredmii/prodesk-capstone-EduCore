@@ -19,7 +19,7 @@ connectDB();
 app.use(
     cors({
         origin: [
-            "https://your-frontend.vercel.app"
+            "https://educore-frontend-six.vercel.app"
         ],
         credentials: true
     })
