@@ -6,7 +6,7 @@ const API_URL =
 export const register = async (data) => {
 
     const response = await axios.post(
-        `${API}/register`,
+        `${API_URL}/register`,
         data
     );
 
@@ -31,7 +31,7 @@ export const register = async (data) => {
 export const login = async (data) => {
 
     const response = await axios.post(
-        `${API}/login`,
+        `${API_URL}/login`,
         data
     );
 

@@ -15,7 +15,7 @@ const authHeader = () => ({
 
 export const getMyCourses = async () => {
     const response = await axios.get(
-        API,
+        API_URL,
         authHeader()
     );
 
@@ -24,7 +24,7 @@ export const getMyCourses = async () => {
 
 export const createCourse = async (courseData) => {
     const response = await axios.post(
-        API,
+        API_URL,
         courseData,
         authHeader()
     );
@@ -34,7 +34,7 @@ export const createCourse = async (courseData) => {
 
 export const updateCourse = async (id, courseData) => {
     const response = await axios.put(
-        `${API}/${id}`,
+        `${API_URL}/${id}`,
         courseData,
         authHeader()
     );
@@ -44,7 +44,7 @@ export const updateCourse = async (id, courseData) => {
 
 export const deleteCourse = async (id) => {
     const response = await axios.delete(
-        `${API}/${id}`,
+        `${API_URL}/${id}`,
         authHeader()
     );
 
