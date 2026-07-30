@@ -154,44 +154,41 @@ function Dashboard() {
 
                 <section className="bg-white rounded-3xl shadow-lg p-10 mb-10">
 
+                    <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
 
-                    <h2 className="text-4xl font-bold text-gray-800">
-                        Welcome Back 👋
-                    </h2>
+                        <div>
+                            <h2 className="text-4xl font-bold text-gray-800">
+                                Welcome Back 👋
+                            </h2>
 
+                            <p className="text-gray-500 mt-3 text-lg">
+                                Explore courses and continue your learning journey.
+                            </p>
+                        </div>
 
-                    <p className="text-gray-500 mt-3 text-lg">
-                        Explore courses and continue your learning journey.
-                    </p>
+                        <div className="w-full lg:w-auto">
+                            <input
+                                value={keyword}
+                                onChange={handleSearch}
+                                placeholder="🔍 Search courses..."
+                                className="
+                    w-full
+                    lg:w-96
+                    border
+                    rounded-xl
+                    px-5
+                    py-3
+                    outline-none
+                    focus:ring-2
+                    focus:ring-blue-500
+                    shadow-sm
+                "
+                            />
+                        </div>
 
-
-
-                    <input
-
-                        value={keyword}
-
-                        onChange={handleSearch}
-
-                        placeholder="Search courses..."
-
-                        className="
-                        mt-8
-                        w-full
-                        max-w-xl
-                        border
-                        rounded-xl
-                        px-5
-                        py-3
-                        outline-none
-                        focus:ring-2
-                        focus:ring-blue-500
-                        "
-
-                    />
-
+                    </div>
 
                 </section>
-
 
 
                 <div className="flex justify-between items-center mb-8">
