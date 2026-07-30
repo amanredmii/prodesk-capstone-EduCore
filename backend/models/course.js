@@ -28,7 +28,17 @@ const courseSchema = new mongoose.Schema(
         authorId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
-            required: true,
+            default: null,
+        },
+
+        isDefault: {
+            type: Boolean,
+            default: false,
+        },
+
+        category: {
+            type: String,
+            default: "",
         },
     },
     {

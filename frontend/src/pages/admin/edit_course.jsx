@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
     getCourseById,
     updateCourse,
-} from "../services/course_service";
+} from "../../services/course_service";
 
 function EditCourse() {
 

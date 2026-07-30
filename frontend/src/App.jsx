@@ -2,11 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/login";
 import Register from "./pages/register";
-import Dashboard from "./pages/dashboard";
-import CreateCourse from "./pages/create_course";
-import EditCourse from "./pages/edit_course";
+import CreateCourse from "./pages/admin/create_course";
+import EditCourse from "./pages/admin/edit_course";
+
 import ProtectedRoute from "./components/Protectedroutes";
 import AIChat from "./pages/aichat";
+import AdminDashboard from "./pages/admin/dashboard";
+import StudentDashboard from "./pages/student/dashboard";
+import CourseDetails from "./pages/student/coursedetails";
 
 function App() {
 
@@ -26,10 +29,19 @@ function App() {
         />
 
         <Route
-          path="/dashboard"
+          path="/admin/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/student/dashboard"
+          element={
+            <ProtectedRoute>
+              <StudentDashboard />
             </ProtectedRoute>
           }
         />
@@ -51,6 +63,9 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+
+
         <Route
           path="/ai"
           element={
@@ -59,8 +74,16 @@ function App() {
             </ProtectedRoute>
           }
         />
-      </Routes>
+        <Route
+          path="/course/:id"
+          element={
+            <ProtectedRoute>
+              <CourseDetails />
+            </ProtectedRoute>
+          }
+        />
 
+      </Routes>
 
     </BrowserRouter>
   );

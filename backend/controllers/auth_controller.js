@@ -16,8 +16,7 @@ exports.registerUser = async (req, res) => {
 
     try {
 
-        const existingUser =
-            await User.findOne({ email });
+        const existingUser = await User.findOne({ email });
 
         if (existingUser) {
             return res.status(400).json({
@@ -28,7 +27,8 @@ exports.registerUser = async (req, res) => {
         const user = await User.create({
             name,
             email,
-            password
+            password,
+            role: "student"
         });
 
         res.status(201).json({
@@ -36,16 +36,19 @@ exports.registerUser = async (req, res) => {
             user: {
                 id: user._id,
                 name: user.name,
-                email: user.email
+                email: user.email,
+                role: user.role
             }
         });
 
     } catch (error) {
-        console.error("Register Error:", error);
+
+        console.error(error);
 
         res.status(500).json({
             message: error.message
         });
+
     }
 };
 
@@ -55,8 +58,7 @@ exports.loginUser = async (req, res) => {
 
     try {
 
-        const user =
-            await User.findOne({ email });
+        const user = await User.findOne({ email });
 
         if (!user) {
             return res.status(401).json({
@@ -64,11 +66,10 @@ exports.loginUser = async (req, res) => {
             });
         }
 
-        const isMatch =
-            await bcrypt.compare(
-                password,
-                user.password
-            );
+        const isMatch = await bcrypt.compare(
+            password,
+            user.password
+        );
 
         if (!isMatch) {
             return res.status(401).json({
@@ -81,13 +82,16 @@ exports.loginUser = async (req, res) => {
             user: {
                 id: user._id,
                 name: user.name,
-                email: user.email
+                email: user.email,
+                role: user.role
             }
         });
 
     } catch (error) {
+
         res.status(500).json({
             message: error.message
         });
+
     }
 };

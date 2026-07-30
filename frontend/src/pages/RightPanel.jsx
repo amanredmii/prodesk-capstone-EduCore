@@ -21,9 +21,17 @@ function RightPanel() {
 
         try {
 
-            await login(form);
+            const data = await login(form);
 
-            navigate("/dashboard");
+            if (data.user.role === "admin") {
+
+                navigate("/admin/dashboard");
+
+            } else {
+
+                navigate("/student/dashboard");
+
+            }
 
         } catch (error) {
 
